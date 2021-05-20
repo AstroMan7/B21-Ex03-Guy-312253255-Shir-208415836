@@ -42,14 +42,21 @@
     <Compile Include="ElectricEngine.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="FuelEngine.cs" />
+    <Compile Include="GarageEnums\eVehicleStatus.cs" />
+    <Compile Include="GarageEnums\eVehicleType.cs" />
+    <Compile Include="GarageManager.cs" />
     <Compile Include="ValueOutOfRangeException.cs" />
     <Compile Include="Vehicle.cs" />
+    <Compile Include="VehicleGenerator.cs" />
+    <Compile Include="Wheels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

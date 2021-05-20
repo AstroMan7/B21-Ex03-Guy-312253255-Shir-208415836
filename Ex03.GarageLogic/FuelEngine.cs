@@ -48,4 +48,5 @@ namespace Ex03.GarageLogic
 				m_CapacityInPrecentege = (m_CurrentCapacity / m_MaxCapacity) * 100;
 			}
 		}
+	}
 }

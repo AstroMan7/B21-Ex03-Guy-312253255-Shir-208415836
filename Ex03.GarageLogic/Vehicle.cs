@@ -8,13 +8,6 @@ namespace Ex03.GarageLogic
 {
 	public abstract class Vehicle
 	{
-		public enum eVehicleStatus
-		{
-			InRepair = 1,
-			Repaired,
-		    Paid,
-		}
-
 		// Consts
 		public const int k_ModelQLocation = 0;
 		public const int k_OwnerNameQLocation = 1;
@@ -28,7 +21,7 @@ namespace Ex03.GarageLogic
 		protected string m_Model;
 		protected string m_OwnerOfVehicle;
 		protected string m_OwnerPhoneNumber;
-		protected eVehicleStatus m_VehicleStatus = eVehicleStatus.InRepair; //automaticly puts first val?
+		protected Ex03.GarageLogic.Enums.eVehicleStatus m_VehicleStatus = Ex03.GarageLogic.Enums.eVehicleStatus.InRepair; //automaticly puts first val?
 		protected Engine m_MyEngine;
 		protected float m_EnergyLeft;
 
@@ -48,7 +41,7 @@ namespace Ex03.GarageLogic
 		}
 
 		// Get/Set method for m_VehicleStatus
-		public eVehicleStatus VehicleStatus
+		public Enums.eVehicleStatus VehicleStatus
 		{
 			get
 			{
@@ -61,5 +54,27 @@ namespace Ex03.GarageLogic
 			}
 
 		}
+		public virtual void SetVehicle(List<string> i_DataList)
+		{
+			m_Model = i_DataList[k_ModelQLocation];
+			m_OwnerOfVehicle = i_DataList[k_OwnerNameQLocation];
+			m_OwnerPhoneNumber = i_DataList[k_OwnerPhoneQLocation];
+			m_EnergyLeft = float.Parse(i_DataList[k_EnergyLeftQLocation]);
+		}
+		//  Add new question for basic vehicle, virtual method overrided in each one of the inherited classes
+		public virtual List<string> SetQuestions() //why cant turn private?
+		{
+			List<string> o_Questions = new List<string>();
+
+			o_Questions.Add("Please type the model of the car");
+			o_Questions.Add("Owners Name:");
+			o_Questions.Add("Owners Phone:");
+			o_Questions.Add("How much Fuel / Electricity left:");
+			o_Questions.Add("Who is your wheel manufacturer?");
+			o_Questions.Add("What is your current wheel pressure?");
+
+			return o_Questions;
+		}
+
 	}
 }
